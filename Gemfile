@@ -43,15 +43,16 @@ group :development, :test do
   gem 'spring'
 end
 
-
-gem 'bootstrap-sass'
+gem "bootstrap_flash_messages", "0.0.6"
+gem "bootstrap-sass", "~> 3.3"
 gem 'devise'
 gem 'haml-rails'
 gem 'pg'
 gem 'simple_form'
+gem 'grape'
+gem 'active_model_serializers'
 
 group :development do
-  gem 'better_errors'
   gem 'html2haml'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
@@ -62,6 +63,9 @@ group :development do
 end
 
 group :development, :test do
+  gem "pry", "~> 0.9"
+  gem "pry-nav", "~> 0.2"
+  gem 'zeus'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
