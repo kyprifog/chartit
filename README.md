@@ -6,10 +6,10 @@ This is a charting application that allows you to create pie charts.
 The following are the endpoints supported by the REST api:
 
 ```
-get /charts   #Fetches a list of a users charts
-post /charts  #Creates a new chart
-get /chart/:chart_id  #Fetches a particular chart
-put /chart/:chart_id  #Updates a particular chart
+get api/v1/charts   #Fetches a list of a users charts
+post api/v1/charts  #Creates a new chart
+get api/v1/chart/:chart_id  #Fetches a particular chart
+put api/v1/chart/:chart_id  #Updates a particular chart
 
 ```
 

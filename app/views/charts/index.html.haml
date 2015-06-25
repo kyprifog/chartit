@@ -1,1 +1,38 @@
-= current_user.charts.count
+
+%h3  Welcome!
+
+%p Chart.it is a sample charting program written by #{link_to(append_icon("Kyle Prifogle","github"),"https://github.com/kyprifog", :target => "_blank")}. 
+%p You can view the source code #{link_to append_icon("here", "bitbucket"), "https://bitbucket.org/kprifogle/chart.it", :target => "_blank"}
+
+%p Select a chart on the left or create a new chart. You can edit or delete charts by clicking the actions next to the chart menu items.
+
+%p In addition to providing a (simplistic) interface for creating pie charts you can call the charting REST api that is attached to the charting program.
+
+%p The following are the endpoints supported by the REST api:
+
+.well
+  %ul
+    %li get api/v1/charts           #Fetches a list of a users charts
+    %li post api/v1/charts          #Creates a new chart
+    %li get api/v1/charts/:chart_id  #Fetches a particular chart
+    %li put api/v1/charts/:chart_id  #Updates a particular chart
+    %li delete api/v1/charts/:chart_id  #Destroys a particular chart
+
+%p Note that for a post or put you must specify the parameters in curl using -p
+%p In order to do a delete using curl you can specify the header -X DELETE
+
+%p The REST API (for now) uses HTTP_BASIC authentication using the username and password used to sign in to web application.  Therefore each api call should be made according to the following:
+
+.well
+  %p curl -u username:password API_ENDPOINT
+
+%p Therefore to test the endpoints simple create a user in the web application and then call the endpoints using those credentials.
+
+%p In addition to illustrating a simple charting program, this also illustrates how an api and a web application can be developed harmoniously in parallel by using Service Objects to clean up shared functionality.
+
+%p Future Directions:
+%ul
+  %li HMAC api key authentication.
+  %li Automatically infering the appropriate controller actions via the api.
+
+  

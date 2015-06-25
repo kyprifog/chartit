@@ -1,0 +1,22 @@
+-content_for(:body) do
+  .container
+    .row
+      .col-lg-12.main_area
+        .col-lg-9.primary_area
+          = yield
+        .col-lg-3.sidebar_area
+          .sidebar-nav
+            %h3 Chart Navigator
+            %ul.nav.nav-list
+              %li.nav-header Select a chart
+              -current_user.charts.each do |chart|
+                %li
+                  -if chart.persisted?
+                    .inline
+                      %h4
+                        = link_to chart.safe_name, chart_path(chart)
+                        = link_to append_icon("","pencil"), edit_chart_path(chart)
+                        = link_to append_icon("","trash"), chart_path(chart), :method => :delete
+              %li.new= link_to append_icon("New Chart","plus"), new_chart_path
+
+= render template: 'layouts/application'

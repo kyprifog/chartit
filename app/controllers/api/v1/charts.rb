@@ -51,7 +51,7 @@ module API
 
           desc "Deletes a chart"
           delete do
-            {"type" => "delete_chart"}.merge({"id" => @chart.delete.id})
+            {"type" => "delete_chart"}.merge({"id" => @chart.destroy.id})
           end
 
         end

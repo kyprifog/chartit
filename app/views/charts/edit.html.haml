@@ -1,0 +1,15 @@
+- @chart.slices.build if @chart.slices.length == 0
+= simple_form_for(@chart, html:  {class: 'form'}) do |f|
+  .inline.chart_buttons
+    = link_to "Cancel", charts_path, :class => "btn"
+    = f.submit :class => "btn"
+  #slices
+    = f.input :name, :label => "Chart Name"
+    = f.input :description, :label => "Chart Description"
+    = f.simple_fields_for :slices do |slice|
+      = render partial: 'slice_fields', :locals => {:f => slice}
+    .links.well.nested-fields
+      = link_to_add_association append_icon("Add Slice", "plus"), f, :slices
+  .inline.chart_buttons
+    = link_to "Cancel", charts_path, :class => "btn"
+    = f.submit :class => "btn"

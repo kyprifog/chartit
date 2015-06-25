@@ -51,6 +51,10 @@ gem 'pg'
 gem 'simple_form'
 gem 'grape'
 gem 'active_model_serializers'
+gem 'cocoon'
+gem 'font-awesome-rails'
+gem "highcharts-rails", "~> 3.0.0"
+gem "cancan"
 
 group :development do
   gem 'html2haml'

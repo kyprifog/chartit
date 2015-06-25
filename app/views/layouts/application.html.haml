@@ -5,35 +5,29 @@
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title= content_for?(:title) ? yield(:title) : "Chart.it"
-    = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
-
+    = javascript_include_tag :cocoon
+    = favicon_link_tag 'piechart.png'
   %body
     .navbar.navbar-default.navbar-static-top
       .container
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand(href="#") Chart.it
+        %a.navbar-brand(href=charts_path)
+          =append_icon("Chart.it", "pie-chart")
         .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li= link_to "Link 1", "/path1"
-            %li= link_to "Link 2", "/path2"
-            %li= link_to "Link 3", "/path3"
-            %li= link_to "Link 3", "/path3"
+          %ul.nav.navbar-nav.pull-right
+            -if user_signed_in?
+              %li= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete'
+            -else
+              %li= link_to 'Sign Up', new_user_registration_path
 
     .container
-      .row
-        .col-lg-9
-          / = bootstrap_flash
-          = yield
-        .col-lg-3
-          .well.sidebar-nav
-            %h3 Chart Navigator
-            %ul.nav.nav-list
-              %li.nav-header Select a chart
-              %li= link_to "New Chart", ""
-      %footer
-        %p &copy; Company <%= Date.today.year %>
+      - if msg = flash[:error]
+        #flash.alert.alert-error= msg
+      = content_for?(:body) ? content_for(:body) : yield
+
+
+  .container.footer
+    %footer
+      %p &copy; Kyle Prifogle #{Date.today.year}

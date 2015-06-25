@@ -3,12 +3,12 @@ class CreateChart
   def initialize(user, params)
     @user = user
     @params = params
-    @params["slices_attributes"] = @params.delete("slices")
+    @params["slices_attributes"] = @params.delete("slices") if @params["slices"]
   end
 
   def perform
     chart = @user.charts.new(@params)
-    chart.save!
+    chart.save
     chart
   end
 end

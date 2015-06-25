@@ -1,0 +1,5 @@
+%p.well
+  = @chart.description
+#highchart{:data => @data}
+:javascript
+  window.setupHighchart();

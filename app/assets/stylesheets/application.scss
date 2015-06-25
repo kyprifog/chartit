@@ -1,2 +1,98 @@
 /** Mixins **/
 @import 'bootstrap';
+@import "font-awesome";
+
+.inline{
+  display: inline-block;
+}
+.alert-error{
+  background-color: rgb(199, 52, 52);
+  color: white;
+}
+label{
+  margin:15px;
+  padding-left: 10px;
+}
+
+.links{
+  background-color: rgb(142, 142, 142);
+  color: white;
+  margin-top: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  position: relative;
+  bottom: 20px;
+  padding: 5px;
+  padding-left: 23px;
+  .add_fields{
+    color:white;
+  }
+}
+
+.footer{
+  background-color: black;
+  color: white;
+  padding: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.main_area{
+  padding: 0px;
+  background-color:#616C76;
+}
+.primary_area{
+  padding-top:30px;
+  background-color: white;
+  min-height: 621px;
+}
+.sidebar_area{
+  color:white;
+  a{
+    color: #EEFFA4;
+  }
+}
+
+.navbar-default{
+  margin-bottom: 0px;
+}
+
+.navbar-brand{
+  font-size: 25px;
+}
+
+li.new{
+  a:hover{
+    background-color:grey;
+  }
+}
+
+.login{
+  background-color: rgb(148, 157, 176);
+  border-radius: 5px;
+  padding: 20px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.email{
+  padding-right:26px;
+}
+input.password{
+  width:50%
+}
+.login-btn{
+  margin-bottom:20px;
+}
+.mar-left{
+  margin-left: 120px;
+}
+
+.chart_buttons{
+  margin-bottom:20px;
+  background-color:ghostwhite;
+}
